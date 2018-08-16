@@ -1,0 +1,42 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Imanity</h1>
+
+  <p>Welcome to <em>Imanity</em>, a basic website powered by Django. Feel free to explore!</p>
+
+<h3>Dynamic Content</h3>
+
+  <p>The library has the following record counts:</p>
+
+  <div class="row">
+  <div class="col-lg-4">
+  <table class="table table-striped">
+    <tr>
+        <td width="65%">Books:</td>
+        <td>{{ num_books }}</td>
+    </tr>
+    <tr>
+        <td>Copies:</td>
+        <td>{{ num_instances }}</td>
+    </tr>
+    <tr>
+        <td>Copies available:</td>
+        <td>{{ num_authors }}</td>
+    </tr>
+    <tr>
+        <td>Authors:</td>
+        <td>{{ num_instances }}</td>
+    </tr>
+    <tr>
+        <td>Genres:</td>
+        <td>{{ num_genre }}</td>
+    </tr>
+
+  </table>
+</div>
+</div>
+
+<p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} time(s){% endif %}.</p>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>All Users</h1>
+
+    {% if users %}
+    <table class="table table-striped">
+      <tr>
+          <th>Username</th>
+      </tr>
+      {% for user in users %}
+      <tr>
+          <td><a href="{% url 'blogs-by-author' user.pk %}">{{ user.get_username }}</a></td>
+      </tr>
+      {% endfor %}
+
+    </table>
+
+    {% else %}
+      <p>There are no bloggers yet.</p>
+    {% endif %}
+{% endblock %}

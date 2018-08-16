@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+<h1>Create Blog</h1>
+
+<div class="row">
+<div class="col-lg-8">
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    {% bootstrap_form form %}
+
+    {% buttons %}
+      <input type="submit" value="Submit" class="btn btn-primary"/>
+    {% endbuttons %}
+
+</form>
+</div>
+</div>
+{% endblock %}

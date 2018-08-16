@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>User: {{blogger}}</h1>
+
+
+    {% if blog_list %}
+    <h3>List of blogs by this user</h3>
+
+    <table class="table table-striped">
+      <tr>
+          <th>Blog Title</th>
+          <th>Post Date</th>
+      </tr>
+
+      {% for blog in blog_list %}
+
+      <tr>
+          <td><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></td>
+          <td>{{blog.post_date}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+
+    {% else %}
+      <p>This blogger hasn't posted anything yet.</p>
+    {% endif %}
+{% endblock %}

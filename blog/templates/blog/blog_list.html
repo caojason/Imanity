@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>All Blogs</h1>
+
+    {% if blog_list %}
+    <table class="table table-striped">
+      <tr>
+          <th>Blog Title</th>
+          <th>Post Date</th>
+          <th>Posted By</th>
+      </tr>
+      {% for blog in blog_list %}
+
+      <tr>
+          <td><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></td>
+          <td>{{blog.post_date}}</td>
+          <td><a href="{% url 'blogs-by-author' blog.author.pk %}">{{ blog.author }}</a></td>
+      </tr>
+
+      {% endfor %}
+
+    </table>
+
+    {% else %}
+      <p>There are no blogs.</p>
+    {% endif %}
+{% endblock %}
